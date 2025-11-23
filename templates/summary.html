@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Träna mer – {{ user.capitalize() }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .bad { background:#ffdad6; }
+        .medium { background:#fff4cc; }
+        .good { background:#d4f7d4; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Träna mer, {{ user.capitalize() }}</h1>
+        <h3>Dina tabellområden att öva på:</h3>
+
+        <table class="stats-table">
+            <tr>
+                <th>Tabell</th>
+                <th>Antal rätt</th>
+            </tr>
+
+            {% for table, score in stats %}
+                {% if loop.index == 1 %}
+                <tr class="bad">
+                {% elif loop.index <= 3 %}
+                <tr class="medium">
+                {% else %}
+                <tr class="good">
+                {% endif %}
+                    <td>{{ table }}</td>
+                    <td>{{ score }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <a class="btn" href="/dashboard/{{ user }}">Tillbaka</a>
+    </div>
+
+</body>
+</html>

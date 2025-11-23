@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Träning – {{ user.capitalize() }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Träning för {{ user.capitalize() }}</h1>
+        <h3>Lös uppgifterna här nedan</h3>
+
+        <form method="POST" action="/submit/{{ user }}">
+            <input type="hidden" name="start_time" value="{{ start_time }}">
+
+            <div class="problem-grid">
+                {% for a,b in problems %}
+                <div class="problem-box">
+                    {{ a }} × {{ b }} =
+                    <br>
+                    <input type="number" name="{{ a }}x{{ b }}" required>
+                </div>
+                {% endfor %}
+            </div>
+
+            <button type="submit">Skicka svar</button>
+        </form>
+
+        <a class="btn" href="/dashboard/{{ user }}">Tillbaka</a>
+    </div>
+
+</body>
+</html>

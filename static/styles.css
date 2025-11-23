@@ -1,0 +1,169 @@
+/* Grundstil */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background: #f0f4f8;
+    color: #333;
+}
+
+/* Behagliga containrar */
+.container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+/* Rubriker */
+h1, h2, h3 {
+    color: #1e3a8a;
+    text-align: center;
+}
+
+/* Tabell med uppgifter */
+.problem-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.problem-box {
+    padding: 15px;
+    border-radius: 10px;
+    background: #e0f2fe;
+    border: 1px solid #bae6fd;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+/* Input-fält */
+input[type="number"] {
+    width: 80px;
+    padding: 8px;
+    font-size: 1.2rem;
+    text-align: center;
+    border: 2px solid #93c5fd;
+    border-radius: 8px;
+}
+
+input[type="number"]:focus {
+    border-color: #3b82f6;
+    outline: none;
+}
+
+/* Knappar */
+button, .btn {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 24px;
+    background: #3b82f6;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover, .btn:hover {
+    background: #2563eb;
+}
+
+/* Dashboardkort */
+.card {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+/* Sammanfattningstabell */
+.stats-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.stats-table td, .stats-table th {
+    padding: 12px;
+    text-align: center;
+}
+
+.stats-table tr:nth-child(even) {
+    background: #f1f5f9;
+}
+/* ----------------------
+   MOBIL & SURFPLATTA
+   ---------------------- */
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 10px;
+        margin: 0;
+    }
+
+    .container {
+        max-width: 100%;
+        margin: 0;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2, h3 {
+        font-size: 1.3rem;
+    }
+
+    .btn {
+        width: 100%;
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+        padding: 14px;
+    }
+
+    /* Problemrutorna i practice.html */
+    .problem-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .problem-box {
+        padding: 15px;
+        font-size: 1.2rem;
+    }
+
+    .problem-box input {
+        width: 100%;
+        font-size: 1.2rem;
+        padding: 10px;
+        margin-top: 5px;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+        font-size: 1.3rem;
+        padding: 15px;
+        margin-top: 20px;
+    }
+
+    /* Summary-table anpassning */
+    table.stats-table {
+        width: 100%;
+        font-size: 1.1rem;
+    }
+
+    table.stats-table th,
+    table.stats-table td {
+        padding: 12px;
+    }
+}

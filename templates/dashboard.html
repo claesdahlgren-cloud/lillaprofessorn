@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ user }} – Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Hej {{ user.capitalize() }}!</h1>
+
+        <div class="card">
+            <h2>Dina resultat</h2>
+            <p><strong>Totalt antal rätt:</strong> {{ results.total_correct }}</p>
+
+            {% if results.times %}
+                <p><strong>Senaste tid:</strong> {{ results.times[-1] }} sekunder</p>
+            {% else %}
+                <p>Inga tider registrerade ännu.</p>
+            {% endif %}
+        </div>
+
+        <a class="btn" href="/practice/{{ user }}">Gör några träningsuppgifter</a>
+        <a class="btn" href="/summary/{{ user }}">Träna mer</a>
+        <a class="btn" href="/">Till startsidan</a>
+    </div>
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+    ... allt innehåll här ...
+{% endblock %}
+
+</body>
+</html>
